@@ -7,7 +7,7 @@ function App() {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([]);
   const [curId, setCurId] = useState(null);
-  const [editText, setEditText] = useState("");
+  const [editText, setEditText] = useState(false);
 
   // Fetch items from JSON server
   useEffect(() => {
@@ -47,10 +47,12 @@ function App() {
   }
 
   // Toggle edit mode
-  function newEdit(itemId, itemValue) {
-    setCurId(itemId);
-    setEditText(itemValue);
-  }
+    function newEdit(itemId, itemValue) {
+      setCurId(itemId);
+      setEditText(itemValue);
+      
+    }
+
 
   // Handle edit
   async function handleEdit(id) {
@@ -66,6 +68,8 @@ function App() {
     setCurId(null); // Exiting edit mode
     setEditText("");
   }
+
+
 
   return (
     <div className="App">
